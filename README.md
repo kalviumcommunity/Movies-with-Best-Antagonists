@@ -1,6 +1,9 @@
 # Rogue Reels
 
+
 ## Idea 
+
+## Idea
 
 Rogue Reels is a a platform thatt celebrates the brilliance and powerful chraisma of movie antagonists. The catalog offers a vast collection of films featuring some of the most compelling villains in cinematic history. Lets dive into exploring and curating lists alongside Ghostface and Joker with Rogue Reels.
 
