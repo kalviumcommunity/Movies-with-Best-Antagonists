@@ -9,3 +9,9 @@ Rogue Reels is a a platform thatt celebrates the brilliance and powerful chraism
 1. Film Database: Rogue Reels provides a vast collection of films with iconic antagonists, allowing users to explore and discover more on their journey.
 
 1. Responsive Design: The platform is made friendly for all devices ensuring a seamless experience for pur users.
+
+## Deployed Link
+
+https://s55-movies-with-best-antagonists.onrender.com/
+
+https://s55-movies-with-best-antagonists.onrender.com/ping
