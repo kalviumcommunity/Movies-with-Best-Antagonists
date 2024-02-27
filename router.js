@@ -11,11 +11,12 @@ router.post('/post', (req,res) =>{
     }
     catch(err){
         console.log(err)
+        res.send(err)
         res.status(500).json({ message: 'Server Error' })
     }
 })
 
-router.get('/read',async (req,res) => {
+router.get('/read',(req,res) => {
     try{
         res.json({message : "Data Read Succesfully"})
     }
@@ -24,7 +25,7 @@ router.get('/read',async (req,res) => {
     }
 })
 
-router.put('/update',async (req,res) => {
+router.put('/update',(req,res) => {
     try{
         res.json({message : "Data Updated Succesfully"})
     }
@@ -33,7 +34,7 @@ router.put('/update',async (req,res) => {
     }
 })
 
-router.delete('/delete',async (req,res) => {
+router.delete('/delete',(req,res) => {
     try{
         res.json({message : "Data Deleted Succesfully"})
     }
