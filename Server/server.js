@@ -3,7 +3,7 @@ const { connectDB , disconnectDB , isConnected} = require('./db.js')
 
 const app = express()
 const Router = require('./router.js')
-const PORT = 3000
+const PORT = 4000
 
 const printStatus = async() => {
     await connectDB()
@@ -11,6 +11,12 @@ const printStatus = async() => {
 }
 
 printStatus()
+
+app.get('/home',(req,res)=> {
+    connectDB()
+    res.json({isConnected : isConnected()})
+})
+
 
 app.use(Router)
 

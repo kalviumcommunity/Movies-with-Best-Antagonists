@@ -1,0 +1,143 @@
+[
+    {
+      "srNo": 1,
+      "antagonist": "Joker",
+      "movie": "The Dark Knight",
+      "portrayedBy": "Heath Ledger",
+      "imageLinks": "https://img.hotimg.com/jokered06f130e4c6c974.jpeg"
+    },
+    {
+      "srNo": 2,
+      "antagonist": "Darth Vader",
+      "movie": "Star Wars",
+      "portrayedBy": "David Prowse",
+      "imageLinks": "https://img.hotimg.com/dartth-vader.jpeg"
+    },
+    {
+      "srNo": 3,
+      "antagonist": "Amy Dunne",
+      "movie": "Gone Girl",
+      "portrayedBy": "Rosamund Pike",
+      "imageLinks": "https://img.hotimg.com/amu-dunne.jpeg"
+    },
+    {
+      "srNo": 4,
+      "antagonist": "Thanos",
+      "movie": "Avengers: Infinity War",
+      "portrayedBy": "Josh Brolin",
+      "imageLinks": "https://img.hotimg.com/thanos.jpeg"
+    },
+    {
+      "srNo": 5,
+      "antagonist": "Hannibal Lecter",
+      "movie": "The Silence of the Lambs",
+      "portrayedBy": "Anthony Hopkins",
+      "imageLinks": "https://img.hotimg.com/hannibal-lecter.jpeg"
+    },
+    {
+      "srNo": 6,
+      "antagonist": "Ghostface",
+      "movie": "Scream",
+      "portrayedBy": "Skeet Ulrich",
+      "imageLinks": "https://img.hotimg.com/ghostface.png"
+    },
+    {
+      "srNo": 7,
+      "antagonist": "Loki",
+      "movie": "The Avengers",
+      "portrayedBy": "Tom Hiddleston",
+      "imageLinks": "https://img.hotimg.com/loki.jpeg"
+    },
+    {
+      "srNo": 8,
+      "antagonist": "Ivan Drago",
+      "movie": "Rocky IV",
+      "portrayedBy": "Dolph Lundgren",
+      "imageLinks": "https://img.hotimg.com/ivan-drago.jpeg"
+    },
+    {
+      "srNo": 9,
+      "antagonist": "Hans Landa",
+      "movie": "Inglorious Basterds",
+      "portrayedBy": "Chrsitopher Waltz",
+      "imageLinks": "https://img.hotimg.com/hans-landaece5ccd94e17909e.webp"
+    },
+    {
+      "srNo": 10,
+      "antagonist": "John Doe",
+      "movie": "Se7en",
+      "portrayedBy": "Kevin Spacey",
+      "imageLinks": "https://img.hotimg.com/john-doe.jpeg"
+    },
+    {
+      "srNo": 11,
+      "antagonist": "Tyler Durden",
+      "movie": "Fight Club",
+      "portrayedBy": "Brad Pitt",
+      "imageLinks": "https://img.hotimg.com/tyler-durden.jpeg"
+    },
+    {
+      "srNo": 12,
+      "antagonist": "Raoul Silva",
+      "movie": "Skyfall",
+      "portrayedBy": "Javier Bardem",
+      "imageLinks": "https://img.hotimg.com/roual-silva.jpeg"
+    },
+    {
+      "srNo": 13,
+      "antagonist": "Harley Quinn",
+      "movie": "Suicide Squad",
+      "portrayedBy": "Margot Robbie",
+      "imageLinks": "https://img.hotimg.com/harley-quinn.jpeg"
+    },
+    {
+      "srNo": 14,
+      "antagonist": "Terence Fletcher",
+      "movie": "Whiplash",
+      "portrayedBy": "J.K. Simmons",
+      "imageLinks": "https://img.hotimg.com/terence-fletcher.jpeg"
+    },
+    {
+      "srNo": 15,
+      "antagonist": "Jaykant Shikre",
+      "movie": "Singham",
+      "portrayedBy": "Prakash Raj",
+      "imageLinks": "https://img.hotimg.com/jaykant-shikre.jpeg"
+    },
+    {
+      "srNo": 16,
+      "antagonist": "Bhallaldev",
+      "movie": "Bahubali",
+      "portrayedBy": "Rana Daggubati",
+      "imageLinks": "https://img.hotimg.com/bhallaldev.jpeg"
+    },
+    {
+      "srNo": 17,
+      "antagonist": "Kancha Cheena",
+      "movie": "Agneepath",
+      "portrayedBy": "Sanjay Dutt",
+      "imageLinks": "https://img.hotimg.com/kanncha-cheena.jpeg"
+    },
+    {
+      "srNo": 18,
+      "antagonist": "Hela",
+      "movie": "Thor: Ragnarok",
+      "portrayedBy": "Cate Blanchett",
+      "imageLinks": "https://img.hotimg.com/hela.jpeg"
+    },
+    {
+      "srNo": 19,
+      "antagonist": "Voldemort",
+      "movie": "Harry Potter",
+      "portrayedBy": "Ralph Fiennes",
+      "imageLinks": "https://img.hotimg.com/voldemort.jpeg"
+    },
+    {
+      "srNo": 20,
+      "antagonist": "Spot",
+      "movie": "Spiderman: Across the Spider-Verse",
+      "portrayedBy": "Jason Schwartzman",
+      "imageLinks": "https://img.hotimg.com/spot.jpeg"
+    }
+  ]
+  
