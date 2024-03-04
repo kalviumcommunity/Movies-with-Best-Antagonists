@@ -1,6 +1,8 @@
 import './List.css'
 import PinImg from '../assets/pin.png'
 
+// This is the component that will get the entity and show the data to the user.
+
 function Tile({ antagonist, imageLinks, movie, portrayedBy, srNo }) {
     return (
         <div className='align'>
