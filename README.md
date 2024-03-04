@@ -12,6 +12,10 @@ Rogue Reels is a a platform thatt celebrates the brilliance and powerful chraism
 
 ## Deployed Link
 
+### Backend
+
 https://s55-movies-with-best-antagonists.onrender.com/
 
-https://s55-movies-with-best-antagonists.onrender.com/ping
+### Frontend
+
+https://antagonists-archive.netlify.app
