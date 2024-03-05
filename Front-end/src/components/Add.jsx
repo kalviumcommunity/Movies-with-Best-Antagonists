@@ -25,12 +25,12 @@ function Add() {
 
     function passData() {
         try {
-            axios.post("https://movies-with-best-antagonists-1.onrender.com/addEntity", {
+            axios.post("https://movies-with-best-antagonists-1.onrender.com/newEntity", {
                 "srNo": 55,
                 "antagonist": name,
                 "movie": movie,
                 "portrayed_by": actor,
-                "imageLink": img
+                "imageLinks": img
             })
             .then(response => console.log(response))
         }

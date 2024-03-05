@@ -5,7 +5,17 @@ meta {
 }
 
 post {
-  url: http://localhost:4000/newEntity
-  body: none
+  url: https://movies-with-best-antagonists-1.onrender.com/newEntity
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "id" : 55,
+    "antagonists": "SHAAZ",
+    "movie" : "your nightmare",
+    "portrayed_by" : "Mr X",
+    "imageLink" : "http"
+  }
 }

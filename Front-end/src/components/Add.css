@@ -13,13 +13,14 @@
 }
 
 .blackReel{
-    width: 35vw;
+    width: 600px;
     height: 93vh;
     background-color: black;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .whiteSpot{
@@ -37,10 +38,12 @@
 .formHeading{
     font-family: "Amatic SC";
     font-weight: 900;
-    font-size: 4.5vw;
+    font-size:75px;
     color: #faf4e8;
     margin-bottom: 2vh; 
     text-align: center;  
+    text-overflow: hidden;
+    width: 100%;
 }
 
 .formPart{
@@ -81,9 +84,50 @@ label{
     border: 3px solid #faf4e8;
     border-radius: 5px;
     margin-top: 40px;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+button:hover{
+    cursor: pointer;
 }
 
 .formArea button:hover{
     background-color: #faf4e8;
     color: black;
+}
+
+@media(max-width: 700px){
+    .blackReel{
+        width: 80vw;
+    }
+    .formHeading{
+        font-size: 55px;
+    }
+    label{
+        font-size: 30px;
+    }
+    .formPart input{
+        width: 50vw;
+    }
+}
+
+@media(max-width:550px){
+    .blackReel{
+        width: 94%;
+    }
+    .formHeading{
+        font-size:45px ;
+    }
+    .label{
+        font-size: 25px;
+    }
+    .formArea button{
+        height: 100px;
+    }
+    .formPart input{
+        width: 55vw;
+    }
+    .formPart{
+        margin: 25px;
+    }
 }
