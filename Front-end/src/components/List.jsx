@@ -4,7 +4,6 @@ import SearchImg from '../assets/search.png'
 import Logo from '../assets/logo.png'
 
 import Tile from './Tile'
-import data from '../sampleData.json'
 
 import { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
@@ -12,15 +11,13 @@ import axios from 'axios'
 
 function List() {
 
-    const [dataFromDB,setDataFromDB] = useState([])
+    const [data,setData] = useState([])
     
     const getData = async() => {
         try{
             const res = await axios.get("https://movies-with-best-antagonists-1.onrender.com/list")
             console.log(res)
-            setDataFromDB(res)
-            // .then(res => console.log(res.data))
-            // .then(res => setDataFromDB(res.data))
+            setData(res.data)
         }
         catch(err){
             console.log("Unable to get data from DB - ",err)
@@ -32,8 +29,8 @@ function List() {
     },[])
 
     useEffect(()=>{
-        console.log("dataFromDB" , dataFromDB)
-    },[dataFromDB])
+        console.log("dataFromDB" , data)
+    },[data])
 
     return (
         <>
