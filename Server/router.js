@@ -3,6 +3,8 @@ const router = express.Router()
 
 router.use(express.json())
 
+const {Model} = require('./schema.js')
+
 router.post('/post', (req,res) =>{ 
     try{
         const data = req.body
@@ -37,6 +39,17 @@ router.put('/update',(req,res) => {
 router.delete('/delete',(req,res) => {
     try{
         res.json({message : "Data Deleted Succesfully"})
+    }
+    catch(err){
+        console.log(err)
+    }
+})
+
+router.get('/list', async (req,res) => {
+    try{
+        const test = await Model.find({})
+        console.log(test)
+        res.send(test)
     }
     catch(err){
         console.log(err)
