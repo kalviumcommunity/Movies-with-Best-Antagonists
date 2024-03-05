@@ -220,6 +220,34 @@ nav{
     text-overflow: ellipsis;
 }
 
+.end{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 16vw;
+    padding-right: 20px;
+}
+
+.addEntity{
+    border: 2px solid black;
+    height: 100%;
+    font-family: "Amatic SC";
+    color: black;
+    font-size: 30px;
+    font-weight: 900;
+    font-weight: 900;
+    height: 60px;
+    width: 150%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(50, 50, 50);
+    color: #faf4e8;
+    border-radius: 5px;
+}
+
+
+
 @media(max-width:1250px){
     .rankBox{
         height: 23%;
