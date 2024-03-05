@@ -58,9 +58,9 @@ router.get('/list', async (req,res) => {
 
 router.post('/newEntity' , async(req,res) => {
     try{
-        const data = req.body
+        const data = Model.create(req.body)
         console.log(data)
-        res.json(data)
+        res.send(data)
     }
     catch(err){
         console.log(err)
