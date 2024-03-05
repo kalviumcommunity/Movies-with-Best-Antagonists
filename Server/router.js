@@ -56,4 +56,15 @@ router.get('/list', async (req,res) => {
     }
 })
 
+router.post('/newEntity' , async(req,res) => {
+    try{
+        const data = req.body
+        console.log(data)
+        res.json(data)
+    }
+    catch(err){
+        console.log(err)
+    }
+})
+
 module.exports = router

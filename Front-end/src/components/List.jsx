@@ -5,32 +5,32 @@ import Logo from '../assets/logo.png'
 
 import Tile from './Tile'
 
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function List() {
 
-    const [data,setData] = useState([])
-    
-    const getData = async() => {
-        try{
+    const [data, setData] = useState([])
+
+    const getData = async () => {
+        try {
             const res = await axios.get("https://movies-with-best-antagonists-1.onrender.com/list")
             console.log(res)
             setData(res.data)
         }
-        catch(err){
-            console.log("Unable to get data from DB - ",err)
+        catch (err) {
+            console.log("Unable to get data from DB - ", err)
         }
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         getData()
-    },[])
+    }, [])
 
-    useEffect(()=>{
-        console.log("dataFromDB" , data)
-    },[data])
+    useEffect(() => {
+        console.log("dataFromDB", data)
+    }, [data])
 
     return (
         <>
@@ -43,9 +43,9 @@ function List() {
                 <div className="black">
                     <nav>
                         <div>
-                        <Link to='/'>
-                            <img src={Logo} alt="Antagonist Archive Logo" className='logoImg' />
-                        </Link>
+                            <Link to='/'>
+                                <img src={Logo} alt="Antagonist Archive Logo" className='logoImg' />
+                            </Link>
                         </div>
                         <div className="search">
                             <input className="searchBox" placeholder='Search here' />
@@ -53,9 +53,16 @@ function List() {
                                 <img src={SearchImg} alt="Search Icon" className='searchImg' />
                             </div>
                         </div>
-                        <Link to='/AboutUs'>
-                            <div className="aboutUs">ABOUT US</div>
-                        </Link>
+                        <div className='end'>
+                            <Link to='/AboutUs'>
+                                <div className="aboutUs">ABOUT US</div>
+                            </Link>
+                            <Link to='/AddEntity'>
+                                <div className="addEntity">
+                                    ADD ENTITY
+                                </div>
+                            </Link>
+                        </div>
                     </nav>
                     <div className="nav2">
 
@@ -66,7 +73,7 @@ function List() {
                     {/* {setNewData(shuffleArray(data))} */}
                     {data.map(el => {
                         return (
-                            <Tile {...el} key={el.srNo}/>
+                            <Tile {...el} key={el.srNo} />
                         )
                     })}
                     <div className="placeholder"></div>
