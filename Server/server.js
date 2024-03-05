@@ -1,5 +1,6 @@
 const express = require("express")
 const { connectDB , disconnectDB , isConnected} = require('./db.js')
+const cors = require('cors')
 
 const app = express()
 const Router = require('./router.js')
@@ -11,6 +12,8 @@ const printStatus = async() => {
 }
 
 printStatus()
+
+app.use(cors())
 
 app.get('/home',(req,res)=> {
     connectDB()
