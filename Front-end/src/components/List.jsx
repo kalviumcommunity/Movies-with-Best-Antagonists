@@ -6,11 +6,27 @@ import Logo from '../assets/logo.png'
 import Tile from './Tile'
 import data from '../sampleData.json'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 
 function List() {
+
+    function getData(){
+        try{
+
+            const response = axios.get("mongodb+srv://shaaaaz:mongo@angtagonists.stboc2h.mongodb.net/antagonists?retryWrites=true&w=majority&appName=angtagonists")
+            .then(response => console.log(response))
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    useEffect(()=>{
+        getData()
+    },[])
 
     return (
         <>
@@ -46,7 +62,7 @@ function List() {
                     {/* {setNewData(shuffleArray(data))} */}
                     {data.map(el => {
                         return (
-                            <Tile {...el} />
+                            <Tile key={el.srNo} {...el} />
                         )
                     })}
                     <div className="placeholder"></div>
