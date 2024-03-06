@@ -25,7 +25,7 @@ function List() {
             }
         }
         getData()
-    }, [])
+    }, [data])
 
     useEffect(() => {
         console.log("dataFromDB", data)

@@ -11,6 +11,7 @@ function Tile({ antagonist, imageLinks, movie, portrayed_by, srNo,count,_id}) {
         console.log("hello",_id)
         axios.delete("https://movies-with-best-antagonists-1.onrender.com/delete/"+_id)
         .then(res => console.timeLog(res))
+        // .then(window.location.reload())
         .catch(err => console.log(err))
     }
 
