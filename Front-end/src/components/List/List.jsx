@@ -1,7 +1,7 @@
 import './List.css'
 
-import SearchImg from '../assets/search.png'
-import Logo from '../assets/logo.png'
+import SearchImg from '../../assets/search.png'
+import Logo from '../../assets/logo.png'
 
 import Tile from './Tile'
 

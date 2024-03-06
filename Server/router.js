@@ -56,6 +56,13 @@ router.get('/list', async (req,res) => {
     }
 })
 
+router.get('/list/:id', async (req,res) => {
+    const _id = req.params.id
+    Model.findById({_id})
+    .then(users => res.json(users))
+    .catch(err => console.log(err))
+})
+
 router.post('/newEntity' , async(req,res) => {
     try{
         const data = Model.create(req.body)
