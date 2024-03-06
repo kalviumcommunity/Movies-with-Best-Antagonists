@@ -1,5 +1,5 @@
-import LogoImg from '../assets/logo.png'
-import Voldemort from '../assets/vol.png'
+import LogoImg from '../../assets/logo.png'
+import Voldemort from '../../assets/vol.png'
 import './AboutUs.css'
 import { Link } from 'react-router-dom'
 
