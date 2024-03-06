@@ -229,7 +229,7 @@ nav{
 }
 
 .addEntity{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     height: 100%;
     font-family: "Amatic SC";
     color: black;
@@ -241,8 +241,8 @@ nav{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(50, 50, 50);
-    color: #faf4e8;
+    /* background-color: rgb(50, 50, 50); */
+    /* color: #faf4e8; */
     border-radius: 5px;
 }
 
@@ -266,12 +266,23 @@ nav{
 
 .update{
     color: green;
-    border: 3px solid green;
+    border: 3px solid green;    
+}
+
+.update:hover{
+    color: white;
+    background-color: green;
 }
 
 .delete{
     color: red;
     border: 3px solid red;
+}
+
+.delete:hover{
+    color: white;
+    cursor: pointer;
+    background-color: red;
 }
 
 

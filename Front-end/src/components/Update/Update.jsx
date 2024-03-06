@@ -7,23 +7,23 @@ import { useParams } from 'react-router-dom'
 function Update() {
 
     const navigate = useNavigate()
-    const {id} = useParams()
+    const { id } = useParams()
 
-    const [currData,setCurrData] = useState([])
+    const [currData, setCurrData] = useState([])
 
-    useEffect(()=> {
+    useEffect(() => {
         const getData = async () => {
-            const res = await axios.get(`https://movies-with-best-antagonists-1.onrender.com/list/`+id)
-            console.log("INDIVIDUAL DATA",res.data)
+            const res = await axios.get(`https://movies-with-best-antagonists-1.onrender.com/list/` + id)
+            console.log("INDIVIDUAL DATA", res.data)
             setCurrData(res.data)
-            setName(res.data.portrayed_by)
+            setName(res.data.antagonist)
             setMovie(res.data.movie)
             setActor(res.data.portrayed_by)
             setImg(res.data.imageLinks)
             setSrNo(res.data.srNo)
         }
         getData()
-    },[])
+    }, [])
 
     const [name, setName] = useState(currData.antagonist)
     const [movie, setMovie] = useState(currData.movie)
@@ -45,18 +45,18 @@ function Update() {
 
     function passData() {
         try {
-            axios.put("https://movies-with-best-antagonists-1.onrender.com/updateUser/"+id, {
+            axios.put("https://movies-with-best-antagonists-1.onrender.com/updateUser/" + id, {
                 "srNo": srNo,
                 "antagonist": name,
                 "movie": movie,
                 "portrayed_by": actor,
                 "imageLinks": img
             })
-            .then(response => {
-                console.log(response)
-                navigate('/list')
-            })
-            .catch(err => console.log(err))
+                .then(response => {
+                    console.log(response)
+                    navigate('/list')
+                })
+                .catch(err => console.log(err))
         }
         catch (err) {
             console.log(err)

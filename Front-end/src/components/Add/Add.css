@@ -71,7 +71,9 @@ label{
     background-color: #faf4e8;
     color: black;
     padding: 0px 10px;
-    font-size: 30px;
+    font-size: 20px;
+    font-family: 'Sans Serif', Courier, monospace;
+    font-weight: 500;
 }
 
 .formArea button{
