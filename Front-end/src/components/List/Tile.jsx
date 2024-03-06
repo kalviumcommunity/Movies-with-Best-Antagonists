@@ -1,13 +1,15 @@
 import './List.css'
 import PinImg from '../../assets/pin.png'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 // This is the component that will get the entity and show the data to the user.
 
 function Tile({ antagonist, imageLinks, movie, portrayed_by, srNo,count,_id}) {
 
-    const handleDelete = (id) => {
-        axios.delete("https://movies-with-best-antagonists-1.onrender.com/delete/"+id)
+    const handleDelete = (_id) => {
+        console.log("hello",_id)
+        axios.delete("https://movies-with-best-antagonists-1.onrender.com/delete/"+_id)
         .then(res => console.timeLog(res))
         .catch(err => console.log(err))
     }
