@@ -83,4 +83,16 @@ router.put(`/updateUser/:id`, async(req,res) => {
     .catch(err => res.json(err))
 })
 
+router.post('/newEntity' , async(req,res) => {
+    try{
+        const data = Model.create(req.body)
+        console.log(data)
+        res.send(data)
+    }
+    catch(err){
+        console.log(err)
+    }
+})
+
+
 module.exports = router
