@@ -1,5 +1,6 @@
 import './List.css'
 import PinImg from '../../assets/pin.png'
+import { Link } from 'react-router-dom'
 
 // This is the component that will get the entity and show the data to the user.
 
