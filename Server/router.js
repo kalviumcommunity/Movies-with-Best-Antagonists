@@ -74,4 +74,17 @@ router.post('/newEntity' , async(req,res) => {
     }
 })
 
+router.put(`/updateUser/:id`, async(req,res) => {
+    const _id = req.params.id
+    Model.findByIdAndUpdate({_id : _id},{
+        srNo : req.body.srNo,
+        antagonist : req.body.antagonist,
+        movie : req.body.movie,
+        portrayed_by : req.body.portrayed_by,
+        imageLinks : req.body.imageLinks
+    })
+    .then(users => res.json(users))
+    .catch(err => res.json(err))
+})
+
 module.exports = router

@@ -11,10 +11,25 @@ function Update() {
 
     const [currData,setCurrData] = useState([])
 
-    const [name, setName] = useState("")
-    const [movie, setMovie] = useState("")
-    const [actor, setActor] = useState("")
-    const [img, setImg] = useState("")
+    useEffect(()=> {
+        const getData = async () => {
+            const res = await axios.get(`https://movies-with-best-antagonists-1.onrender.com/list/`+id)
+            console.log("INDIVIDUAL DATA",res.data)
+            setCurrData(res.data)
+            setName(res.data.portrayed_by)
+            setMovie(res.data.movie)
+            setActor(res.data.portrayed_by)
+            setImg(res.data.imageLinks)
+            setSrNo(res.data.srNo)
+        }
+        getData()
+    },[])
+
+    const [name, setName] = useState(currData.antagonist)
+    const [movie, setMovie] = useState(currData.movie)
+    const [actor, setActor] = useState(currData.portrayed_by)
+    const [img, setImg] = useState(currData.imageLinks)
+    const [srNo, setSrNo] = useState(currData.srNo)
 
     function handleClick(event) {
         event.preventDefault()
@@ -27,25 +42,21 @@ function Update() {
         }
     }
 
-    useEffect(()=> {
-        const getData = async () => {
-            const res = await axios.get(`https://movies-with-best-antagonists-1.onrender.com/list/`+id)
-            console.log(res)
-            setCurrData(res.data)
-        }
-        getData()
-    },[])
 
     function passData() {
         try {
-            axios.post("https://movies-with-best-antagonists-1.onrender.com/newEntity", {
-                "srNo": 55,
+            axios.put("https://movies-with-best-antagonists-1.onrender.com/updateUser"+id, {
+                "srNo": srNo,
                 "antagonist": name,
                 "movie": movie,
                 "portrayed_by": actor,
                 "imageLinks": img
             })
-            .then(response => console.log(response))
+            .then(response => {
+                console.log(response)
+                navigate('/list')
+            })
+            .catch(err => console.log(err))
         }
         catch (err) {
             console.log(err)
@@ -83,29 +94,29 @@ function Update() {
 
                     <div className="formArea">
                         <div className="formHeading">
-                            NEW ANTAGONIST
+                            UPDATE ANTAGONIST
                         </div>
 
                         <form>
                             <div className="formPart">
                                 <label htmlFor="antagonistName" className='font'>Antagonist Name</label>
-                                <input onChange={() => { setName(event.target.value) }} type="text" className='font' />
+                                <input value={name} onChange={() => { setName(event.target.value) }} type="text" className='font' />
                             </div>
                             <div className="formPart">
                                 <label htmlFor="movie" className='font'>Movie</label>
-                                <input onChange={() => { setMovie(event.target.value) }} type="text" className='font' />
+                                <input value={movie} onChange={() => { setMovie(event.target.value) }} type="text" className='font' />
                             </div>
                             <div className="formPart">
                                 <label htmlFor="portrayed_by" className='font'>Portrayed By</label>
-                                <input onChange={() => { setActor(event.target.value) }} type="text" className='font' />
+                                <input value={actor} onChange={() => { setActor(event.target.value) }} type="text" className='font' />
                             </div>
                             <div className="formPart">
                                 <label htmlFor="imageLink" className='font'>Image Link</label>
-                                <input onChange={() => { setImg(event.target.value) }} type="text" className='font' />
+                                <input value={img} onChange={() => { setImg(event.target.value) }} type="text" className='font' />
                             </div>
 
                             <button className='formSubmit font' onClick={handleClick}>
-                                ADD ENTITY
+                                UPDATE
                             </button>
                         </form>
                     </div>
