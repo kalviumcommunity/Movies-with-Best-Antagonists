@@ -3,7 +3,8 @@ import PinImg from '../assets/pin.png'
 
 // This is the component that will get the entity and show the data to the user.
 
-function Tile({ antagonist, imageLinks, movie, portrayed_by, srNo }) {
+function Tile({ antagonist, imageLinks, movie, portrayed_by, srNo,count}) {
+    // console.log("key",key)
     return (
         <div className='align'>
             <div className="item">
@@ -23,7 +24,7 @@ function Tile({ antagonist, imageLinks, movie, portrayed_by, srNo }) {
                 </div>
 
                 <div className="rankBox">
-                    {srNo}
+                    {count+1}
                 </div>
                 <img src={PinImg} className='pin' alt="Pin Image" />
             </div>

@@ -12,25 +12,26 @@ import axios from 'axios'
 function List() {
 
     const [data, setData] = useState([])
-
-    const getData = async () => {
-        try {
-            const res = await axios.get("https://movies-with-best-antagonists-1.onrender.com/list")
-            console.log(res)
-            setData(res.data)
-        }
-        catch (err) {
-            console.log("Unable to get data from DB - ", err)
-        }
-    }
-
+    
     useEffect(() => {
+        const getData = async () => {
+            try {
+                const res = await axios.get("https://movies-with-best-antagonists-1.onrender.com/list")
+                console.log(res)
+                setData(res.data)
+            }
+            catch (err) {
+                console.log("Unable to get data from DB - ", err)
+            }
+        }
         getData()
     }, [])
 
     useEffect(() => {
         console.log("dataFromDB", data)
     }, [data])
+
+    
 
     return (
         <>
@@ -70,10 +71,9 @@ function List() {
                 </div>
 
                 <div className="listArea">
-                    {/* {setNewData(shuffleArray(data))} */}
-                    {data.map(el => {
+                    {data.map((el,index) => {
                         return (
-                            <Tile {...el} key={el.srNo} />
+                                <Tile {...el} count={index} />
                         )
                     })}
                     <div className="placeholder"></div>
