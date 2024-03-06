@@ -63,15 +63,11 @@ router.get('/list/:id', async (req,res) => {
     .catch(err => console.log(err))
 })
 
-router.post('/newEntity' , async(req,res) => {
-    try{
-        const data = Model.create(req.body)
-        console.log(data)
-        res.send(data)
-    }
-    catch(err){
-        console.log(err)
-    }
+router.delete('delelte/:id', async(req,res) => {
+    const _id = req.params.id
+    Model.findByIdAndDelete({_id:_id})
+    .then(res => res.json(res))
+    .catch(err => console.log(err))
 })
 
 router.put(`/updateUser/:id`, async(req,res) => {
