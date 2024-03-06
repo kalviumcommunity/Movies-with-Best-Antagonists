@@ -45,7 +45,7 @@ function Update() {
 
     function passData() {
         try {
-            axios.put("https://movies-with-best-antagonists-1.onrender.com/updateUser"+id, {
+            axios.put("https://movies-with-best-antagonists-1.onrender.com/updateUser/"+id, {
                 "srNo": srNo,
                 "antagonist": name,
                 "movie": movie,
