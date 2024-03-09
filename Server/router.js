@@ -5,45 +5,7 @@ router.use(express.json())
 
 const {Model} = require('./schema.js')
 
-router.post('/post', (req,res) =>{ 
-    try{
-        const data = req.body
-        console.log(data)
-        res.json(data)
-    }
-    catch(err){
-        console.log(err)
-        res.send(err)
-        res.status(500).json({ message: 'Server Error' })
-    }
-})
-
-router.get('/read',(req,res) => {
-    try{
-        res.json({message : "Data Read Succesfully"})
-    }
-    catch(err){
-        console.log(err)
-    }
-})
-
-router.put('/update',(req,res) => {
-    try{
-        res.json({message : "Data Updated Succesfully"})
-    }
-    catch(err){
-        console.log(err)
-    }
-})
-
-router.delete('/delete',(req,res) => {
-    try{
-        res.json({message : "Data Deleted Succesfully"})
-    }
-    catch(err){
-        console.log(err)
-    }
-})
+const Joi = require('joi')
 
 router.get('/list', async (req,res) => {
     try{
@@ -71,26 +33,58 @@ router.delete('/delete/:id', async(req,res) => {
 })
 
 router.put(`/updateUser/:id`, async(req,res) => {
-    const _id = req.params.id
-    Model.findByIdAndUpdate({_id : _id},{
-        srNo : req.body.srNo,
-        antagonist : req.body.antagonist,
-        movie : req.body.movie,
-        portrayed_by : req.body.portrayed_by,
-        imageLinks : req.body.imageLinks
+    const schema = Joi.object({
+        srNo : Joi.number().required(),
+        antagonist : Joi.string().required(),
+        movie :Joi.string().required(),
+        portrayed_by : Joi.string().required(),
+        imageLinks : Joi.string().required()
     })
-    .then(users => res.json(users))
-    .catch(err => res.json(err))
+    const {error,value} = schema.validate(req.body)
+
+    if(error){
+        console.log(error)
+        res.send(error)
+    }
+    else{
+        res.send(value)
+        const _id = req.params.id
+        Model.findByIdAndUpdate({_id : _id},{
+            srNo : req.body.srNo,
+            antagonist : req.body.antagonist,
+            movie : req.body.movie,
+            portrayed_by : req.body.portrayed_by,
+            imageLinks : req.body.imageLinks
+        })
+        .catch(err => res.json(err))
+    }
 })
 
 router.post('/newEntity' , async(req,res) => {
-    try{
-        const data = Model.create(req.body)
-        console.log(data)
-        res.send(data)
+    const schema = Joi.object({
+        srNo : Joi.number().required(),
+        antagonist : Joi.string().required(),
+        movie :Joi.string().required(),
+        portrayed_by : Joi.string().required(),
+        imageLinks : Joi.string().required()
+    })
+    const {error,value} = schema.validate(req.body)
+
+    if(error){
+        console.log(error)
+        res.send(error)
     }
-    catch(err){
-        console.log(err)
+    else{
+        console.log(value)
+        res.send(value)
+        try{
+            const data = Model.create(req.body)
+            console.log(data)
+            res.send(data)
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 })
 
