@@ -1,0 +1,22 @@
+meta {
+  name: Validate REQ M15
+  type: http
+  seq: 7
+}
+
+put {
+  url: http://localhost:4000/updateUser/65e69b39fbc702b089089ace
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "srNo":"10",
+    "antagonist":"John Doe",
+    "movie":"Se7en",
+    "portrayed_by":"Kevin Spacey",
+    "imageLinks":"https://img.hotimg.com/john-doe.jpeg"
+  }
+  
+}
