@@ -4,6 +4,7 @@ const cors = require('cors')
 
 const app = express()
 const Router = require('./router.js')
+const UserRouter = require('./userRouter.js')
 const PORT = 4000
 
 const printStatus = async() => {
@@ -22,6 +23,7 @@ app.get('/home',(req,res)=> {
 
 
 app.use(Router)
+app.use(UserRouter)
 
 app.get('/',(req,res) => {
     res.json({"MongoDB Connection Status" : isConnected()})

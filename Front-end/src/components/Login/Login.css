@@ -1,0 +1,168 @@
+.duneBG{
+    height: 100vh;
+    width: 65vw;
+    border-top-right-radius: 80px;
+    border-bottom-right-radius: 80px;
+}
+
+.another{
+    background-color: #f0c295;
+}
+
+.flex{
+    display: flex;
+    overflow-y: hidden;
+}
+
+
+.loginRight{
+    width: 35vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loginText{
+    font-family: 'Amatic SC';
+    color: black;
+    font-weight: 900;
+}
+
+.loginRight h1{
+    font-size: 70px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+}
+
+.loginRight label{
+    text-align: left;
+    align-content: start;
+
+}
+
+.loginRight input{
+    width: 20vw;
+    height: 60px;
+    color: black;
+    font-size: 24px;
+    padding: 15px;
+    border: none;
+    outline: none;
+}
+
+.loginRight input:focus{
+    border: none;
+    outline: none;
+}
+
+.loginRight button{
+    width: 20vw;
+    height:75px;
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    background-color: rgba(104, 90, 90, 0);
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 50px;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.loginRight button:hover{
+    background-color: black;
+    color: #f0c295;
+}
+
+span{
+    text-decoration: underline;
+    color: black;
+    font-family: 'Amatic SC';
+    cursor: pointer;
+}
+
+.flex-r{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.flex h3{
+    font-size: 35px;
+}
+
+.duneBGSU{
+    height: 100vh;
+    width: 65vw;
+    border-top-left-radius: 80px;
+    border-bottom-left-radius: 80px;
+}
+
+.signupRight{
+    width: 35vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.signupRight h1{
+    font-size: 70px;
+    margin-top: -20px;
+    /* margin-bottom: 20px; */
+}
+
+.signupRight .button-su{
+    margin: 30px;
+}
+
+.signupRight input{
+    width: 23vw;
+    height: 50px;
+    color: black;
+    font-size: 24px;
+    padding: 15px;
+    border: none;
+    outline: none;
+}
+
+.signupRight button{
+    width: 23vw;
+    height:75px;
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+    background-color: rgba(104, 90, 90, 0);
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 40px;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+
+.signupRight button:hover{
+    background-color: black;
+    color: #f0c295;
+}
+
+.close{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 30px;
+    cursor: pointer;
+}
+
+
+.close-su{
+    position: absolute;
+    top: 25px;
+    /* left: 32vw; */
+    left: 25px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.red{
+    margin-top: 5px;
+    color: rgb(212, 0, 0);
+    text-align: center;
+}
