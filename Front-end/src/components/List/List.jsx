@@ -48,19 +48,29 @@ function List() {
                                 <img src={Logo} alt="Antagonist Archive Logo" className='logoImg' />
                             </Link>
                         </div>
-                        <div className="search">
+                        {/* <div className="search">
                             <input className="searchBox" placeholder='Search here' />
                             <div className="searchButton">
                                 <img src={SearchImg} alt="Search Icon" className='searchImg' />
                             </div>
-                        </div>
+                        </div> */}
                         <div className='end'>
                             <Link to='/AboutUs'>
-                                <div className="aboutUs">ABOUT US</div>
+                                <div className="login">ABOUT US</div>
                             </Link>
                             <Link to='/AddEntity'>
-                                <div className="addEntity">
+                                <div className="login">
                                     ADD ENTITY
+                                </div>
+                            </Link>
+                            <Link to="/login">
+                                <div className="login">
+                                    Login
+                                </div>
+                            </Link>
+                            <Link to="/signup">
+                                <div className="login">
+                                    SignUp
                                 </div>
                             </Link>
                         </div>

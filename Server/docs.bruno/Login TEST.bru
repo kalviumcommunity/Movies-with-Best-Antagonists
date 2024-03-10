@@ -1,0 +1,20 @@
+meta {
+  name: Login TEST
+  type: http
+  seq: 9
+}
+
+post {
+  url: http://localhost:4000/newUser
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name" : "Shaaaz",
+    "username" : "sh",
+    "password" : "pass",
+    "cPassword" : "d"
+  }
+}
