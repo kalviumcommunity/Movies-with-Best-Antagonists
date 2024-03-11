@@ -5,7 +5,8 @@ const mySchema = mongoose.Schema({
     antagonist : String,
     movie : String,
     portrayed_by : String,
-    imageLinks : String
+    imageLinks : String,
+    createdBy : String
 })
 
 const Model = mongoose.model("bestantagonists-collection",mySchema)
