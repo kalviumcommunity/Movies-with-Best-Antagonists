@@ -73,8 +73,11 @@ function Login() {
                                 "username" : username,
                                 "password" : password
                             })
-                            .then(access => document.cookie = "ACCESS_TOKEN=" + access.data +"; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
-                            )
+                            .then(access => {
+                                console.log(access)
+                                document.cookie = "ACCESS_TOKEN=" + access.data.acsessToken +"; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
+                            })
+
                         }
                         catch(err){
                             console.log(err)
