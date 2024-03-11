@@ -293,6 +293,10 @@ nav{
     margin: 40px;
 }
 
+.pointer{
+    cursor: pointer;
+}
+
 
 @media(max-width:1250px){
     .rankBox{
