@@ -60,35 +60,42 @@ function Signup() {
            newAlerts.password == "" &&
            newAlerts.cPassword == ""){
             console.log("login succesful mate")
-            setLoginCorrect(true)
+            return true
            }
 
         setAlert(newAlerts)
+        return false
     }
 
     function handleSubmit(){
-        handleAlerts()
+        const isDone = handleAlerts()
+
+
+        if(isDone){
+
+            document.cookie = "name="+ name +"; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
+            document.cookie = "username="+ username +"; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
+            document.cookie = "password="+ password +"; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
+            document.cookie = "confirmPassword="+ cPassword +"; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
+            console.log(alerts.name)
+        
+            try{
+                axios.post("https://movies-with-best-antagonists-1.onrender.com/newUser",{
+                    "name" : name,
+                    "username" : username,
+                    "password" : password,
+                    "cPassword" : cPassword
+                })
+                .then(response => console.log(response))
+                .then(navigate('/list'))
+            }
+            catch(err){
+                console.log(err)
+            }
+        }
     }
     
     useEffect(()=> {
-        document.cookie = "name="+ name +"; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
-        document.cookie = "username="+ username +"; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
-        document.cookie = "password="+ password +"; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
-        document.cookie = "confirmPassword="+ cPassword +"; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
-        console.log(alerts.name)
-
-        try{
-            axios.post("https://movies-with-best-antagonists-1.onrender.com/newUser",{
-                "name" : name,
-                "username" : username,
-                "password" : password,
-                "cPassword" : cPassword
-            })
-            .then(response => console.log(response))
-        }
-        catch(err){
-            console.log(err)
-        }
 
     },[loginCorrect])
 

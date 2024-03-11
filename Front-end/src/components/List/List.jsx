@@ -27,11 +27,17 @@ function List() {
         getData()
     }, [data])
 
+    const [isLoggedIn,setisLoggedIn] = useState(true)
+
     useEffect(() => {
         console.log("dataFromDB", data)
+        setisLoggedIn(sessionStorage.getItem("showLOGIN"))
     }, [data])
 
-    
+    function handleLogout(){
+        alert("Logged out succesfully!")
+        sessionStorage.clear()
+    }
 
     return (
         <>
@@ -63,16 +69,25 @@ function List() {
                                     ADD ENTITY
                                 </div>
                             </Link>
-                            <Link to="/login">
+                            
+                            {!isLoggedIn && <Link to="/login">
                                 <div className="login">
                                     Login
                                 </div>
                             </Link>
-                            <Link to="/signup">
+
+                            }
+                            
+                            {!isLoggedIn && <Link to="/signup">
                                 <div className="login">
                                     SignUp
                                 </div>
-                            </Link>
+                            </Link>}
+
+                            {isLoggedIn && <div className="login" onClick={handleLogout}>
+                                    LOGOUT
+                                </div>}
+
                         </div>
                     </nav>
                     <div className="nav2">
