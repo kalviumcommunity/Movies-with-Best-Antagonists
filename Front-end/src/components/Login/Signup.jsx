@@ -86,7 +86,10 @@ function Signup() {
                     "password" : password,
                     "cPassword" : cPassword
                 })
-                .then(response => console.log(response))
+                .then(response => {
+                    console.log(response)
+                    sessionStorage.setItem("user",username)
+                })
                 .then(navigate('/list'))
             }
             catch(err){

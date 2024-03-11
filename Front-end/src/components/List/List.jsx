@@ -12,11 +12,15 @@ import axios from 'axios'
 function List() {
 
     const [data, setData] = useState([])
-    
+    const [userData, setUserData] = useState([])
+    const [filteredData,setFilteredData] = useState([])
+
     useEffect(() => {
         const getData = async () => {
             try {
                 const res = await axios.get("https://movies-with-best-antagonists-1.onrender.com/list")
+                const uD = await axios.get("https://movies-with-best-antagonists-1.onrender.com/users")
+                setUserData(uD.data)
                 setData(res.data)
             }
             catch (err) {
@@ -26,28 +30,45 @@ function List() {
         getData()
     }, [data])
 
-    const [isLoggedIn,setisLoggedIn] = useState(true)
+    const [isLoggedIn, setisLoggedIn] = useState(true)
 
     useEffect(() => {
         setisLoggedIn(sessionStorage.getItem("showLOGIN"))
     }, [data])
 
-    function handleLogout(){
+    function handleLogout() {
         alert("Logged out succesfully!")
         sessionStorage.clear()
         deleteCookies()
-        console.log("cookies",document.cookie)
+        console.log("cookies", document.cookie)
     }
 
-    function deleteCookies() { 
-        var allCookies = document.cookie.split(';'); 
-        for (var i = 0; i < allCookies.length; i++) 
-            document.cookie = allCookies[i] + "=;expires=" 
-            + new Date(0).toUTCString(); 
+    function deleteCookies() {
+        var allCookies = document.cookie.split(';');
+        for (var i = 0; i < allCookies.length; i++)
+            document.cookie = allCookies[i] + "=;expires="
+                + new Date(0).toUTCString();
 
-        displayCookies.innerHTML = document.cookie; 
+        displayCookies.innerHTML = document.cookie;
 
-    } 
+    }
+
+    function handleOptionChange(e){
+        const selectedUser = e.target.value
+
+        if(selectedUser == "All"){
+            setFilteredData(data)
+        }
+        else{
+            const few = data.filter(el => {
+            if(el.createdBy == selectedUser){
+                return el
+            }
+        })
+        
+        setFilteredData(few)
+    }
+    }
 
     return (
         <>
@@ -79,7 +100,7 @@ function List() {
                                     ADD ENTITY
                                 </div>
                             </Link>
-                            
+
                             {!isLoggedIn && <Link to="/login">
                                 <div className="login">
                                     Login
@@ -87,7 +108,7 @@ function List() {
                             </Link>
 
                             }
-                            
+
                             {!isLoggedIn && <Link to="/signup">
                                 <div className="login">
                                     SignUp
@@ -95,8 +116,8 @@ function List() {
                             </Link>}
 
                             {isLoggedIn && <div className="login pointer" onClick={handleLogout}>
-                                    LOGOUT
-                                </div>}
+                                LOGOUT
+                            </div>}
 
                         </div>
                     </nav>
@@ -105,10 +126,17 @@ function List() {
                     </div>
                 </div>
 
+                <select name="userName" onChange={(e) => handleOptionChange(e)}>
+                    <option value="All">All</option>
+                    {userData && userData.map(el => {
+                        return <option value={el.username}>{el.username}</option>
+                    })}
+                </select>
+
                 <div className="listArea">
-                    {data.map((el,index) => {
+                    {filteredData && filteredData.map((el, index) => {
                         return (
-                                <Tile {...el} count={index} />
+                            <Tile {...el} count={index} />
                         )
                     })}
                     <div className="placeholder"></div>

@@ -1,5 +1,5 @@
 import './Add.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
@@ -11,6 +11,11 @@ function Add() {
     const [movie, setMovie] = useState("")
     const [actor, setActor] = useState("")
     const [img, setImg] = useState("")
+    const [user,setUser] = useState("randomUser")
+
+    useEffect(()=> {
+        setUser(sessionStorage.getItem("user"))
+    },[])
 
     function handleClick(event) {
         event.preventDefault()
@@ -30,7 +35,8 @@ function Add() {
                 "antagonist": name,
                 "movie": movie,
                 "portrayed_by": actor,
-                "imageLinks": img
+                "imageLinks": img,
+                "createdBy" : user
             })
             .then(response => console.log(response))
         }
