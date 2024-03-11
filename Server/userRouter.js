@@ -8,6 +8,8 @@ const { UserModel } = require('./userSchema.js')
 
 const Joi = require('joi')
 
+require('dotenv').config()
+
 router.get('/users', async (req, res) => {
     try {
         const test = await UserModel.find({})
@@ -43,6 +45,24 @@ router.post('/newUser', async (req, res) => {
             console.log(err)
         }
     } 
+})
+
+router.post('/login', async(req,res) => {
+    const { username, password } = req.body
+    try{
+
+        const user = await UserModel.findOne({ username,password });
+        
+        if (user) {
+            console.log(user);
+            return res.status(200).json({ success: true, message: 'Login successful' });
+        } else {
+            return res.status(401).json({ error: 'Invalid username or password' });
+        }
+    }
+    catch(err){
+        console.log(err)
+    }
 })
 
 module.exports = router
