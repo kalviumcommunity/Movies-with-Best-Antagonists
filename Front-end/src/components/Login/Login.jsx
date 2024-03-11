@@ -54,7 +54,6 @@ function Login() {
             try{
                 const response=  axios.get("https://movies-with-best-antagonists-1.onrender.com/users")
                 .then(response => {
-                    console.log(response)
                     setAllUserData(response.data)
                 })
                 .then(allUserData && allUserData.map(el => {
@@ -64,10 +63,22 @@ function Login() {
                         document.cookie = "password=" + password + "; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
                         sessionStorage.setItem("showLOGIN",false)
                         setUserFound(true)
+
                     }
                 }))
                 .then(response => {
                     if(userFound){
+                        try{
+                            const access = axios.post("https://movies-with-best-antagonists-1.onrender.com/auth",{
+                                "username" : username,
+                                "password" : password
+                            })
+                            .then(access => document.cookie = "ACCESS_TOKEN=" + access.data +"; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
+                            )
+                        }
+                        catch(err){
+                            console.log(err)
+                        }
                         navigate('/list')
                     }
                     else{

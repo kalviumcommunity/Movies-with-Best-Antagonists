@@ -17,7 +17,6 @@ function List() {
         const getData = async () => {
             try {
                 const res = await axios.get("https://movies-with-best-antagonists-1.onrender.com/list")
-                console.log(res)
                 setData(res.data)
             }
             catch (err) {
@@ -30,14 +29,25 @@ function List() {
     const [isLoggedIn,setisLoggedIn] = useState(true)
 
     useEffect(() => {
-        console.log("dataFromDB", data)
         setisLoggedIn(sessionStorage.getItem("showLOGIN"))
     }, [data])
 
     function handleLogout(){
         alert("Logged out succesfully!")
         sessionStorage.clear()
+        deleteCookies()
+        console.log("cookies",document.cookie)
     }
+
+    function deleteCookies() { 
+        var allCookies = document.cookie.split(';'); 
+        for (var i = 0; i < allCookies.length; i++) 
+            document.cookie = allCookies[i] + "=;expires=" 
+            + new Date(0).toUTCString(); 
+
+        displayCookies.innerHTML = document.cookie; 
+
+    } 
 
     return (
         <>
@@ -84,7 +94,7 @@ function List() {
                                 </div>
                             </Link>}
 
-                            {isLoggedIn && <div className="login" onClick={handleLogout}>
+                            {isLoggedIn && <div className="login pointer" onClick={handleLogout}>
                                     LOGOUT
                                 </div>}
 

@@ -10,6 +10,8 @@ const Joi = require('joi')
 
 require('dotenv').config()
 
+const jwt = require('jsonwebtoken')
+
 router.get('/users', async (req, res) => {
     try {
         const test = await UserModel.find({})
@@ -63,6 +65,17 @@ router.post('/login', async(req,res) => {
     catch(err){
         console.log(err)
     }
+})
+
+router.post('/auth', async(req,res) => {
+    const {username,password} = req.body
+    const user = {
+        "username" : username,
+        "password" : password
+    }
+
+    const ACCESS_TOKEN = jwt.sign(user,process.env.ACCESS_TOKEN_SECRET)
+    res.json({"acsessToken" : ACCESS_TOKEN})
 })
 
 module.exports = router
