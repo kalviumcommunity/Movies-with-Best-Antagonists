@@ -30,6 +30,11 @@ function Update() {
     const [actor, setActor] = useState(currData.portrayed_by)
     const [img, setImg] = useState(currData.imageLinks)
     const [srNo, setSrNo] = useState(currData.srNo)
+    const [user,setUser] = useState("randomUser")
+
+    useEffect(()=> {
+        setUser(sessionStorage.getItem("user"))
+    },[user])
 
     function handleClick(event) {
         event.preventDefault()
@@ -50,7 +55,8 @@ function Update() {
                 "antagonist": name,
                 "movie": movie,
                 "portrayed_by": actor,
-                "imageLinks": img
+                "imageLinks": img,
+                "createdBy" : user
             })
                 .then(response => {
                     console.log(response)

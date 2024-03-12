@@ -15,7 +15,7 @@ function Add() {
 
     useEffect(()=> {
         setUser(sessionStorage.getItem("user"))
-    },[])
+    },[user])
 
     function handleClick(event) {
         event.preventDefault()
