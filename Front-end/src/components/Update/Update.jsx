@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import dune3 from '../../assets/dune3.jpg'
 
 function Update() {
 
@@ -73,7 +74,8 @@ function Update() {
     return (
         <>
             <div className="background">
-                <div className="blackBG"></div>
+                <div className="blackBG">
+                    <img src={dune3} alt="" className='duneBGIMG'/></div>
                 <div className="imgCenter">
                 </div>
             </div>

@@ -1,26 +1,33 @@
-import LogoImg from '../../assets/logo.png'
+import LogoImg from '../../assets/logo3.png'
 import Voldemort from '../../assets/vol.png'
 import './AboutUs.css'
 import { Link } from 'react-router-dom'
+import Dune from '../../assets/dune5.png'
 
 function AboutUs() {
     return (
         <>
-            <div className="back">
+            <div className="background">
+                <div className="blackBG">
+                    <img src={Dune} alt="" className='duneBGIMG' /></div>
+                <div className="imgCenter">
+                </div>
             </div>
 
-            <Link to='/'>
-                <img src={LogoImg} alt="" className='logoAboutUs' />
-            </Link>
+<Link to="/list">
+                <img src={LogoImg} alt="" className='abt'/>
+</Link>
 
-            <img src={Voldemort} alt="" className='vol' />
+            <div className='aboutUs'>
 
-            <div className="text">
+                <div className="page">
+                    <h1 className='font'>ABOUT US</h1>
 
-                <h1 className='aboutUsHead'>ABOUT US</h1>
+                    <p className='font'>Welcome to Antagonist Archive, where the lines between heroes and villains blur, and the most iconic adversaries claim their rankings. Dive into the captivating narratives of notorious characters across universes. As we explore the allure of villainy, remember: in this archive, you either die a hero or live long enough to see yourself become the villain. Join us on Antagonist Archive for a deep dive into the intriguing world of iconic antagonists.
+                    </p>
+                </div>
 
-                Welcome to Antagonist Archive, where the lines between heroes and villains blur, and the most iconic adversaries claim their rankings. Dive into the captivating narratives of notorious characters across universes. As we explore the allure of villainy, remember: in this archive, you either die a hero or live long enough to see yourself become the villain. Join us on Antagonist Archive for a deep dive into the intriguing world of iconic antagonists.
-            </div>
+        </div >
         </>
     )
 }

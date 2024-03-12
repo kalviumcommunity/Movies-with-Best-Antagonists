@@ -25,7 +25,7 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #faf4e8;
+    background-color: black;
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -57,7 +57,7 @@ body{
     letter-spacing: 3px;
     word-spacing: 10px;
     font-size: 6vw;
-    color: black;
+    color: rgb(255, 255, 255);
     font-weight: 900;
 
 }
@@ -65,8 +65,8 @@ body{
 .nextButton{
     margin-top: 45px;
     border-radius: 5px;
-    border: 2px solid rgb(0, 0, 0);
-    color: rgb(0, 0, 0);
+    border: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,8 +80,8 @@ body{
 }
 
 .nextButton:hover{
-    background-color: rgb(0, 0, 0);
-    color: #faf4e8;
+    background-color: rgb(255, 255, 255);
+    color: #000000;
 }
 
 .homePageLogo{
@@ -93,6 +93,10 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.white{
+    color: white;
 }
 
 @media (max-width:725px){
@@ -119,6 +123,8 @@ body{
         width: 80vw;
     }
 }
+
+
 
 @media (max-width:450px){
     .shift{

@@ -1,7 +1,7 @@
 import './Home.css'
 import { Link } from 'react-router-dom'
-import starWarsImg from '../../assets/Pulp Fiction x Star Wars.jpg'
-import LogoImg from '../../assets/logo.png'
+import starWarsImg from '../../assets/wp.jpg'
+import LogoImg from '../../assets/logo3.png'
 
 function Home() {
     return (

@@ -87,8 +87,9 @@ function Signup() {
                     "cPassword" : cPassword
                 })
                 .then(response => {
-                    console.log(response)
+                    sessionStorage.setItem("showLOGIN",false)
                     sessionStorage.setItem("user",username)
+                    console.log(response)
                 })
                 .then(navigate('/list'))
             }
