@@ -8,12 +8,18 @@ import Tile from './Tile'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import dune3 from '../../assets/dune4.jpg'
+import Person from '../../assets/person.png'
 
 function List() {
 
+    const navigate = useNavigate()
+
     const [data, setData] = useState([])
     const [userData, setUserData] = useState([])
-    const [filteredData,setFilteredData] = useState([])
+    const [filteredData, setFilteredData] = useState([])
+    const [showData, setShowData] = useState(true)
 
     useEffect(() => {
         const getData = async () => {
@@ -29,6 +35,11 @@ function List() {
         }
         getData()
     }, [data])
+
+    useEffect(() => {
+        setFilteredData(data)
+
+    }, [])
 
     const [isLoggedIn, setisLoggedIn] = useState(true)
 
@@ -53,27 +64,38 @@ function List() {
 
     }
 
-    function handleOptionChange(e){
+    function handleOptionChange(e) {
         const selectedUser = e.target.value
+        setShowData(false)
 
-        if(selectedUser == "All"){
+        if (selectedUser == "All") {
             setFilteredData(data)
         }
-        else{
+        else {
             const few = data.filter(el => {
-            if(el.createdBy == selectedUser){
-                return el
-            }
-        })
-        
-        setFilteredData(few)
+                if (el.createdBy == selectedUser) {
+                    return el
+                }
+            })
+
+            setFilteredData(few)
+        }
     }
+
+    function handleAddEntityClick() {
+        if (isLoggedIn) {
+            navigate('/addEntity')
+        }
+        else {
+            alert("You need to Log In to create a new entity")
+        }
     }
 
     return (
         <>
             <div className="background">
-                <div className="blackBG"></div>
+                <div className="blackBG">
+                    <img src={dune3} alt="" className='duneBGIMG' /></div>
                 <div className="imgCenter">
                 </div>
             </div>
@@ -91,15 +113,25 @@ function List() {
                                 <img src={SearchImg} alt="Search Icon" className='searchImg' />
                             </div>
                         </div> */}
+                        <div className="select">
+
+                        <select name="userName" onChange={(e) => handleOptionChange(e)} defaultValue="All">
+                            <option selected disabled>Choose a user</option>
+                            <option value="All">All</option>
+                            {userData && userData.map(el => {
+                                return <option key={el._id} value={el.username}>{el.username}</option>
+                            })}
+                        </select>
+                            </div>
+
                         <div className='end'>
                             <Link to='/AboutUs'>
                                 <div className="login">ABOUT US</div>
                             </Link>
-                            <Link to='/AddEntity'>
-                                <div className="login">
-                                    ADD ENTITY
-                                </div>
-                            </Link>
+
+                            <div className="login" onClick={handleAddEntityClick}>
+                                ADD ENTITY
+                            </div>
 
                             {!isLoggedIn && <Link to="/login">
                                 <div className="login">
@@ -119,6 +151,15 @@ function List() {
                                 LOGOUT
                             </div>}
 
+                            {isLoggedIn && 
+                                <div className='userInfo'>
+                                    <img src={Person} className='personLogo' />
+                                    <h2 className='userInfo'>
+                                        {sessionStorage.getItem("user")}
+                                        </h2>
+                                </div>
+                            }
+
                         </div>
                     </nav>
                     <div className="nav2">
@@ -126,17 +167,17 @@ function List() {
                     </div>
                 </div>
 
-                <select name="userName" onChange={(e) => handleOptionChange(e)}>
-                    <option value="All">All</option>
-                    {userData && userData.map(el => {
-                        return <option value={el.username}>{el.username}</option>
-                    })}
-                </select>
 
                 <div className="listArea">
-                    {filteredData && filteredData.map((el, index) => {
+                    {!showData && filteredData && filteredData.map((el, index) => {
                         return (
-                            <Tile {...el} count={index} />
+                            <Tile {...el} count={index} key={el._id} />
+                        )
+                    })}
+
+                    {showData && data.map((el, index) => {
+                        return (
+                            <Tile {...el} count={index} key={el._id} />
                         )
                     })}
                     <div className="placeholder"></div>

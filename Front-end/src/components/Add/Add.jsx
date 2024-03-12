@@ -2,6 +2,7 @@ import './Add.css'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import dune3 from '../../assets/dune3.jpg'
 
 function Add() {
 
@@ -30,7 +31,8 @@ function Add() {
 
     function passData() {
         try {
-            axios.post("c", {
+            console.log("user",user)
+            axios.post("https://movies-with-best-antagonists-1.onrender.com/newEntity", {
                 "srNo": 55,
                 "antagonist": name,
                 "movie": movie,
@@ -49,7 +51,10 @@ function Add() {
     return (
         <>
             <div className="background">
-                <div className="blackBG"></div>
+                <div className="blackBG">
+
+                    <img src={dune3} alt="" className='duneBGIMG'/>
+                </div>
                 <div className="imgCenter">
                 </div>
             </div>

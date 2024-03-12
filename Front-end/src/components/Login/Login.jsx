@@ -13,10 +13,10 @@ function Login() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    const [allUserData,setAllUserData] = useState([])
-    const [dataCorrect,setDataCorrect] = useState(false)
+    const [allUserData, setAllUserData] = useState([])
+    const [dataCorrect, setDataCorrect] = useState(false)
 
-    const [userFound,setUserFound] = useState(false)
+    const [userFound, setUserFound] = useState(false)
 
     const [alerts, setAlerts] = useState({
         username: "",
@@ -46,54 +46,47 @@ function Login() {
         return false
     }
 
-    function handleClick() {
+    async function handleClick() {
         const isCorrect = handleAlerts()
 
-        
         if (isCorrect) {
-            try{
-                const response=  axios.get("https://movies-with-best-antagonists-1.onrender.com/users")
-                .then(response => {
-                    setAllUserData(response.data)
+            try {
+                const response = await axios.post("https://movies-with-best-antagonists-1.onrender.com/login", {
+                    "username": username,
+                    "password": password
                 })
-                .then(allUserData && allUserData.map(el => {
-                    if(el.username == username && el.password == password){
-                        setDataCorrect(true)
-                        document.cookie = "username=" + username + "; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
-                        document.cookie = "password=" + password + "; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
-                        sessionStorage.setItem("showLOGIN",false)
-                        setUserFound(true)
-
-                    }
-                }))
-                .then(response => {
-                    if(userFound){
-                        try{
-                            const access = axios.post("https://movies-with-best-antagonists-1.onrender.com/auth",{
-                                "username" : username,
-                                "password" : password
-                            })
+                if (response.status === 200) {
+                    setDataCorrect(true)
+                    document.cookie = "username=" + username + "; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
+                    document.cookie = "password=" + password + "; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
+                    sessionStorage.setItem("showLOGIN", false)
+                    sessionStorage.setItem("user", username)
+                    setUserFound(true)
+                    try {
+                        const access = axios.post("https://movies-with-best-antagonists-1.onrender.com/auth", {
+                            "username": username,
+                            "password": password
+                        })
                             .then(access => {
                                 console.log(access)
-                                document.cookie = "ACCESS_TOKEN=" + access.data.acsessToken +"; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
+                                document.cookie = "ACCESS_TOKEN=" + access.data.acsessToken + "; expires=Thu, 18 Dec 2033 12:00:00 UTC; path=/"
                             })
 
-                        }
-                        catch(err){
-                            console.log(err)
-                        }
-                        navigate('/list')
                     }
-                    else{
-                        console.log("Incorrect Username or password")
+                    catch (err) {
+                        console.log(err)
                     }
-                })
+                    navigate('/list')
+                }
             }
-            catch(err){
-                console.log(err)
+            catch (err) {
+
+
+                alert("inavlid username or password")
             }
 
         }
+
     }
 
     return (
