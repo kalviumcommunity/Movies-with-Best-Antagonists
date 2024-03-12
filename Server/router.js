@@ -38,7 +38,8 @@ router.put(`/updateUser/:id`, async(req,res) => {
         antagonist : Joi.string().required(),
         movie :Joi.string().required(),
         portrayed_by : Joi.string().required(),
-        imageLinks : Joi.string().required()
+        imageLinks : Joi.string().required(),
+        createdBy : Joi.string()
     })
     const {error,value} = schema.validate(req.body)
 
@@ -66,7 +67,8 @@ router.post('/newEntity' , async(req,res) => {
         antagonist : Joi.string().required(),
         movie :Joi.string().required(),
         portrayed_by : Joi.string().required(),
-        imageLinks : Joi.string().required()
+        imageLinks : Joi.string().required(),
+        createdBy : Joi.string()
     })
     const {error,value} = schema.validate(req.body)
 
